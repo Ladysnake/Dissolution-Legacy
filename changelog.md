@@ -1,3 +1,7 @@
+##### Version 1.12.2-0.3.12 - BUILT
+- FIXED A BUG!!! When possessing a creeper, spider, or enderman, GUIs work properly.
+  - However, your hotbar will not show up. Already planning on looking into that.
+
 ##### Version 1.12.2-0.3.11 - BUILT
 - Version bump for ModWinder support
 

@@ -68,11 +68,21 @@ public class GuiIncorporealOverlay extends GuiIngameForge {
                     }
                 }
                 // We need to set the render view entity back to a player as renderAir and renderHotbar require it
-                mc.setRenderViewEntity(this.mc.player);
-                this.mc.player.setAir(possessed.getAir());
-                this.renderAir(res.getScaledWidth(), res.getScaledHeight());
-                this.renderHotbar(res, event.getPartialTicks());
-                mc.setRenderViewEntity(possessed);
+                // We shouldn't, though, if the entity has its own shader. This does resault in parts of the hotbar disappearing,
+                // but we'll fix that later...
+                boolean badMob;
+                boolean isCreeper = possessed instanceof EntityCreeper;
+                boolean isEnderman = possessed instanceof EntityEnderman;
+                boolean isSpider = possessed instanceof EntitySpider;
+                badMob = isCreeper || isEnderman || isSpider;
+
+                if (!badMob) {
+                    mc.setRenderViewEntity(this.mc.player);
+                    this.mc.player.setAir(possessed.getAir());
+                    this.renderAir(res.getScaledWidth(), res.getScaledHeight());
+                    this.renderHotbar(res, event.getPartialTicks());
+                    mc.setRenderViewEntity(possessed);
+                }
             }
         }
     }
