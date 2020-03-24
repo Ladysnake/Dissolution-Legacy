@@ -43,22 +43,22 @@ public class DissolutionConfig {
 //        public double maxThickness = 0.9;
 
         @RegExCheck("^/.+/$|^[\\w*]+:\\w+$")
-        @Config.Comment("A list of block IDs that ectoplasm can interact with. " +
+        @Config.Comment("A list of block IDs that ectoplasm can interact with.\n" +
                 "If the name begins and ends with a \'/\', it will be interpreted as a regular expression.")
         public String[] authorizedBlocks = new String[]{"minecraft:lever", "/minecraft:.*door/",
                 "minecraft:wooden_button"};
 
         @RegExCheck("^/.+/$|^[\\w*]+:\\w+$")
         @Config.Comment(
-                "A list of entities that souls cannot possess. " + 
-                "This will only prevent future possession attempts, not cancel current ones. " + 
+                "A list of entities that souls cannot possess.\n" + 
+                "This will only prevent future possession attempts, not cancel current ones.\n" + 
                 "If the name begins and ends with a \'/\', it will be interpreted as a regular expression.")
         public String[] possessionBlacklist = new String[0];
 
         @RegExCheck("^/.+/$|^[\\w*]+:\\w+$")
         @Config.Comment(
-                "A list of entities that souls can possess. " + 
-                "This allows non-undead mobs and bosses to be possessed. " + 
+                "A list of entities that souls can possess.\n" + 
+                "This allows non-undead mobs and bosses to be possessed.\n" + 
                 "If the name begins and ends with a \'/\', it will be interpreted as a regular expression.")
         @Config.RequiresMcRestart
         public String[] possessionWhitelist = new String[0];
