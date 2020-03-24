@@ -238,4 +238,10 @@ public final class DissolutionConfigManager {
             return (defaultStrength && (this == DEFAULT)) || (this == TRUE);
         }
     }
+    public enum NightVisionState {
+        NEVER,
+        ALWAYS,
+        ONLY_HARDCORE,
+        ONLY_NOT_HARDCORE            
+    }
 }

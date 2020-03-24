@@ -1,5 +1,9 @@
 package ladysnake.dissolution.common.handlers;
 
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
 import ladylib.reflection.TypedReflection;
 import ladylib.reflection.typed.TypedSetter;
 import ladysnake.dissolution.api.corporeality.IIncorporealHandler;
@@ -9,16 +13,14 @@ import ladysnake.dissolution.common.config.DissolutionConfigManager;
 import ladysnake.dissolution.common.registries.SoulStates;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.MobEffects;
 import net.minecraft.network.play.server.SPacketSetExperience;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.FoodStats;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
-
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
 
 public class PlayerTickHandler {
 
@@ -56,6 +58,16 @@ public class PlayerTickHandler {
                     return;
                 }
 
+                boolean runPotion = false;
+                DissolutionConfigManager.NightVisionState state = Dissolution.config.ghost.nightVision;
+                if (state != DissolutionConfigManager.NightVisionState.NEVER) {
+                    boolean hardcore = event.player.world.getMinecraftServer().isHardcore();
+                    runPotion = (state == DissolutionConfigManager.NightVisionState.ONLY_HARDCORE && hardcore);
+                    runPotion = runPotion || (state == DissolutionConfigManager.NightVisionState.ONLY_NOT_HARDCORE && !hardcore);
+                    runPotion = runPotion || state == DissolutionConfigManager.NightVisionState.ALWAYS;
+                }
+                if (runPotion) event.player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 200, 0));
+                
                 // Randomly remove experience from the player
                 if (playerCorp.getCorporealityStatus() == SoulStates.SOUL && !playerCorp.isPossessionActive()) {
                     if (rand.nextInt(10) == 0) {

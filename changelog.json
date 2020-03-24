@@ -28,7 +28,7 @@
         "0.3.7": "Disabled the skipDeathScreen option by default, fixing entities becoming invisible after death.",
         "0.3.8": "- Fixed crash when killed by a player possessing a mob",
         "0.3.9": "- Fixed crash when two mods have a possessable entity with the same class name",
-        "0.3.10": "All credits for this update goes to sschr15\n- Added the Hardcore option to also be possible in survival.\n- Added a config option to enable said behavior.",
+        "0.3.10": "All credits for this update and later updates goes to sschr15\n- Added the Hardcore option to also be possible in survival.\n- Added a config option to enable said behavior.",
         "0.3.11": "- Version bump for ModWinder support",
         "0.3.12": "- FIXED A BUG!!! When possessing a creeper, spider, or enderman, GUIs work properly.\n  - However, your hotbar will not show up. Already planning on looking into that."
     }

@@ -49,19 +49,17 @@ public class DissolutionConfig {
                 "minecraft:wooden_button"};
 
         @RegExCheck("^/.+/$|^[\\w*]+:\\w+$")
-        @Config.Comment({
-                "A list of entities that souls cannot possess. ",
-                "This will only prevent future possession attempts, not cancel current ones",
-                "If the name begins and ends with a \'/\', it will be interpreted as a regular expression."
-        })
+        @Config.Comment(
+                "A list of entities that souls cannot possess. " + 
+                "This will only prevent future possession attempts, not cancel current ones. " + 
+                "If the name begins and ends with a \'/\', it will be interpreted as a regular expression.")
         public String[] possessionBlacklist = new String[0];
 
         @RegExCheck("^/.+/$|^[\\w*]+:\\w+$")
-        @Config.Comment({
-                "A list of entities that souls can possess. ",
-                "This allows non-undead mobs and bosses to be possessed.",
-                "If the name begins and ends with a \'/\', it will be interpreted as a regular expression."
-        })
+        @Config.Comment(
+                "A list of entities that souls can possess. " + 
+                "This allows non-undead mobs and bosses to be possessed. " + 
+                "If the name begins and ends with a \'/\', it will be interpreted as a regular expression.")
         @Config.RequiresMcRestart
         public String[] possessionWhitelist = new String[0];
 
@@ -69,7 +67,13 @@ public class DissolutionConfig {
         public boolean allowStuckCommand = true;
 
         @Config.Comment("If set to true, will kill you when out of experience.")
+        @Config.Name("Die when Out of Experience")
         public boolean dieFromExperience = false;
+
+        @Config.Comment("Should incorporeal players get night vision?")
+        @Config.Name("Incorporeal Night Vision")
+        public DissolutionConfigManager.NightVisionState nightVision = DissolutionConfigManager.NightVisionState.ALWAYS;
+
 
     }
 
@@ -88,12 +92,15 @@ public class DissolutionConfig {
     public class Respawn {
 
         @Config.Comment("Whether players should respawn in a specific dimension when they die")
+        @Config.LangKey("config.dissolution.respawnInNether")
         public boolean respawnInNether = false;
 
         @Config.Comment("If dimension respawn is on, the player will always respawn in this dimension")
+        @Config.LangKey("config.dissolution.respawnDimension")
         public int respawnDimension = -1;
 
         @Config.Comment("Whether players should respawn instantly as souls without showing death screen (could mess with other mods)")
+        @Config.LangKey("config.dissolution.skipDeathScreen")
         public boolean skipDeathScreen = true;
 
     }

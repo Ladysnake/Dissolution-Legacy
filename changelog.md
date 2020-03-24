@@ -1,3 +1,7 @@
+##### Version 1.12.2-0.3.13
+- Added optional night vision when incorporeal!
+- Updated translations (finally)
+
 ##### Version 1.12.2-0.3.12 - BUILT
 - FIXED A BUG!!! When possessing a creeper, spider, or enderman, GUIs work properly.
   - However, your hotbar will not show up. Already planning on looking into that.
@@ -6,7 +10,7 @@
 - Version bump for ModWinder support
 
 ##### Version 1.12.2-0.3.10 - BUILT
-All credits for this update goes to sschr15
+All credits for this update and later updates goes to sschr15
 
 - Added the Hardcore option to also be possible in survival.
 - Added a config option to enable said behavior.
