@@ -20,6 +20,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -33,11 +34,17 @@ import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
 import java.util.Map;
 
-@Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.VERSION,
-        acceptedMinecraftVersions = Ref.MCVERSION, dependencies = Ref.DEPENDENCIES,
-        guiFactory = Ref.GUI_FACTORY_CLASS)
+@Mod(
+        modid = Ref.MOD_ID,
+        name = Ref.MOD_NAME,
+        version = Ref.VERSION,
+        acceptedMinecraftVersions = Ref.MCVERSION,
+        dependencies = Ref.DEPENDENCIES,
+        guiFactory = Ref.GUI_FACTORY_CLASS
+)
 public class Dissolution {
 
     @Instance(Ref.MOD_ID)
@@ -49,6 +56,8 @@ public class Dissolution {
     public static final Logger LOGGER = LogManager.getLogger("Dissolution");
     public static final DamageSource OUT_OF_XP = new DamageSource("dissolution.out_of_xp").setDamageBypassesArmor();
 
+    public static boolean isDeveloper = false;
+
     @SidedProxy(clientSide = Ref.CLIENT_PROXY_CLASS, serverSide = Ref.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;
     /**True if the last server checked does not have the mod installed*/
@@ -59,6 +68,10 @@ public class Dissolution {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        final File modSource = Loader.instance().activeModContainer().getSource();
+        isDeveloper = !(modSource != null && (modSource.isFile() && modSource.getName().endsWith(".jar")));
+        if (isDeveloper) LOGGER.warn("It appears that this is a dev environment! Logs will be shown more.");
+
         CapabilityIncorporealHandler.register();
 
         DissolutionConfigManager.init(event.getSuggestedConfigurationFile());

@@ -10,8 +10,8 @@ public class Ref {
     static final String MCVERSION = "[1.12.2]";
     static final String DEPENDENCIES =
             "required-after:forge@[14.23.5.2792,);" +
-                    "required-after:" + LadyLib.MOD_ID + "@[" + LadyLib.VERSION + ",);" +
-                    "required-after:" + ClotheslineHooks.MODID + "@[1.12.2-0.0.1.0,1.12.2-0.0.2.0);" +
+            "required-after:" + LadyLib.MOD_ID + "@[" + LadyLib.VERSION + ",);" +
+            "required-after:" + ClotheslineHooks.MODID + "@[1.12.2-0.0.1.0,1.12.2-0.0.2.0);" +
             "after:albedo;" +
             "after:baubles;" +
             "after:thaumcraft;";

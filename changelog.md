@@ -1,3 +1,6 @@
+##### Version 1.12.2-0.3.13 - BUILT
+- [@Pyrofab](//github.com/Pyrofab) fixed a bug caused when two mobs had the same class name.
+
 ##### Version 1.12.2-0.3.12 - BUILT
 - FIXED A BUG!!! When possessing a creeper, spider, or enderman, GUIs work properly.
   - However, your hotbar will not show up. Already planning on looking into that.

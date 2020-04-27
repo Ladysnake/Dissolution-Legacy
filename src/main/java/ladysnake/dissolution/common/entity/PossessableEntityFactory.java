@@ -108,7 +108,9 @@ public class PossessableEntityFactory {
     }
 
     private static String getName(Class baseClass) {
-        return String.format("%s_%s_%s", EntityPossessableImpl.class.getName(), baseClass.getSimpleName(), baseClass.getName().hashCode());
+        String hash = Integer.toHexString(baseClass.getName().hashCode()).toUpperCase();
+        if (Dissolution.isDeveloper) Dissolution.LOGGER.info(String.format("%s_%s_%s", EntityPossessableImpl.class.getName(), baseClass.getSimpleName(), hash));
+        return String.format("%s_%s_%s", EntityPossessableImpl.class.getName(), baseClass.getSimpleName(), hash);
     }
 
     /**
