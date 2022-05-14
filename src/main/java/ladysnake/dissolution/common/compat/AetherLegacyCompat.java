@@ -1,8 +1,8 @@
 package ladysnake.dissolution.common.compat;
 
-import com.legacy.aether.Aether;
-import com.legacy.aether.AetherConfig;
-import com.legacy.aether.client.gui.inventory.GuiAccessories;
+import com.gildedgames.the_aether.Aether;
+import com.gildedgames.the_aether.AetherConfig;
+import com.gildedgames.the_aether.client.gui.inventory.GuiAccessories;
 import ladylib.compat.EnhancedBusSubscriber;
 import ladysnake.dissolution.common.Ref;
 import ladysnake.dissolution.common.capabilities.CapabilityIncorporealHandler;

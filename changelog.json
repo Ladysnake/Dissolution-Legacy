@@ -31,6 +31,6 @@
         "0.3.10": "All credits for this update goes to sschr15\n- Added the Hardcore option to also be possible in survival.\n- Added a config option to enable said behavior.",
         "0.3.11": "- Version bump for ModWinder support",
         "0.3.12": "- FIXED A BUG!!! When possessing a creeper, spider, or enderman, GUIs work properly.\n  - However, your hotbar will not show up. Already planning on looking into that.",
-        "0.3.13": "- Pyrofab fixed a bug caused when two mobs had the same class name."
+        "0.3.13": "- [@Pyrofab](//github.com/Pyrofab) fixed a bug caused when two mobs had the same class name."
     }
 }
